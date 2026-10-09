@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CXXXXXXXX JXXXXXX GXXXXXXXX — Video Editor &amp; Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scrub-bar" aria-hidden="true">
+      <div class="scrub-fill" id="scrubFill"></div>
+    </div>
+
+    <header class="top">
+      <div class="top-inner">
+        <a href="#top" class="mark"
+          ><span class="rec-dot" aria-hidden="true"></span>90XX</a
+        >
+        <nav class="links" id="navLinks">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div id="top"></div>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div class="eyebrow mono">
+            Portfolio — Cutting video, writing code
+          </div>
+          <h1 class="name">
+            <span class="reveal">CXXXXX JXXXX</span>
+            <span class="last reveal" style="transition-delay: 0.08s"
+              >GXXXXX</span
+            >
+          </h1>
+          <p class="hero-role reveal" style="transition-delay: 0.16s">
+            <strong>Video editor and self-taught developer.</strong> I cut
+            short-form, long-form, and educational videos, and I build the odd
+            website on the side — all learned the same way, by opening a
+            tutorial and just starting.
+          </p>
+          <div class="hero-meta reveal" style="transition-delay: 0.24s">
+            <div>Based in<span>Philippines</span></div>
+            <div>Focus<span>Editing · Front-end</span></div>
+            <div>Approach<span>Self-taught, easy-going</span></div>
+          </div>
+          <div
+            class="hero-clock mono reveal"
+            style="transition-delay: 0.3s"
+            id="heroClock"
+            aria-hidden="true"
+          >
+            <span class="rec-dot small" aria-hidden="true"></span> REC
+            00:00:00:00
+          </div>
+        </div>
+      </section>
+
+      <div class="ruler">
+        <span class="tc mono">00:00:00:00</span>
+        <div class="playhead" aria-hidden="true"></div>
+      </div>
+
+      <section id="work">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Work</h2>
+            <span class="tc mono">reel_01 — reel_03</span>
+          </div>
+          <p class="section-intro reveal">
+            A mix of short-form, long-form, and educational edits.
+          </p>
+
+          <div class="reel">
+            <div class="reel-label reveal">
+              <span class="dash" aria-hidden="true"></span>
+              <h3>Short-form</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-row portrait">
+          <a
+            class="showcase-card reveal tone-a"
+            href="https://www.instagram.com/reel/DdBp35xuqW3/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="showcase-tag mono">00:15</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">IG Reel</h4>
+              <p class="showcase-desc">
+                Fast-paced vertical cut for a product drop.
+              </p>
+            </div>
+          </a>
+          <div
+            class="showcase-card reveal tone-b"
+            style="transition-delay: 0.06s"
+            tabindex="0"
+          >
+            <span class="showcase-tag mono">00:22</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Event Recap</h4>
+              <p class="showcase-desc">Highlight.</p>
+            </div>
+          </div>
+          <div
+            class="showcase-card reveal tone-c"
+            style="transition-delay: 0.12s"
+            tabindex="0"
+          >
+            <span class="showcase-tag mono">00:18</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Quick Tips</h4>
+              <p class="showcase-desc">Edit built for retention.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap">
+          <div class="reel">
+            <div class="reel-label reveal">
+              <span class="dash" aria-hidden="true"></span>
+              <h3>Long-form</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-row landscape">
+          <div class="showcase-card reveal tone-d" tabindex="0">
+            <span class="showcase-tag mono">12:40</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Vlog Edit</h4>
+              <p class="showcase-desc">
+                Few examples are on my YouTube channel.
+              </p>
+            </div>
+          </div>
+          <div
+            class="showcase-card reveal tone-e"
+            style="transition-delay: 0.06s"
+            tabindex="0"
+          >
+            <span class="showcase-tag mono">18:05</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Interview Edit</h4>
+              <p class="showcase-desc">
+                Interview series, hindi ko rin alam kung bakit ko 'to dinagdag'.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap">
+          <div class="reel">
+            <div class="reel-label reveal">
+              <span class="dash" aria-hidden="true"></span>
+              <h3>Educational</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-row landscape">
+          <div class="showcase-card reveal tone-f" tabindex="0">
+            <span class="showcase-tag mono">08:30</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Tutorial Series</h4>
+              <p class="showcase-desc">
+                Laki laki na nila, need pa ng tutorial, pero sige.
+              </p>
+            </div>
+          </div>
+          <div
+            class="showcase-card reveal tone-g"
+            style="transition-delay: 0.06s"
+            tabindex="0"
+          >
+            <span class="showcase-tag mono">05:12</span>
+            <div class="showcase-overlay">
+              <h4 class="showcase-title">Explainer Video</h4>
+              <p class="showcase-desc">
+                Voiceover with my beautiful voice, tas may motion graphics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ruler">
+        <span class="tc mono">00:01:40:00</span>
+        <div class="playhead" aria-hidden="true"></div>
+      </div>
+
+      <section id="skills">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Skills</h2>
+            <span class="tc mono">tools</span>
+          </div>
+          <div class="skills-list">
+            <div class="skill-row reveal">
+              <span class="idx mono">01</span>
+              <span class="name">Premiere Pro</span>
+              <span class="bar"><span data-width="88"></span></span>
+              <span class="tag mono">editing</span>
+            </div>
+            <div class="skill-row reveal" style="transition-delay: 0.05s">
+              <span class="idx mono">02</span>
+              <span class="name">HTML</span>
+              <span class="bar"><span data-width="75"></span></span>
+              <span class="tag mono">markup</span>
+            </div>
+            <div class="skill-row reveal" style="transition-delay: 0.1s">
+              <span class="idx mono">03</span>
+              <span class="name">CSS</span>
+              <span class="bar"><span data-width="72"></span></span>
+              <span class="tag mono">styling</span>
+            </div>
+            <div class="skill-row reveal" style="transition-delay: 0.15s">
+              <span class="idx mono">04</span>
+              <span class="name">JavaScript</span>
+              <span class="bar"><span data-width="65"></span></span>
+              <span class="tag mono">logic</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ruler">
+        <span class="tc mono">00:02:55:00</span>
+        <div class="playhead" aria-hidden="true"></div>
+      </div>
+
+      <section id="about">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>About</h2>
+            <span class="tc mono">bio</span>
+          </div>
+          <div class="about-grid">
+            <div class="about-card mono reveal">
+              <div class="row">
+                <span>Name</span><span>CXXXXXXXXX JXXXXXX C. GXXXXXXXX</span>
+              </div>
+              <div class="row">
+                <span>Role</span><span>Video Editor / Developer</span>
+              </div>
+              <div class="row">
+                <span>Training</span><span>Self-taught</span>
+              </div>
+              <div class="row">
+                <span>Style</span><span>Easy-going, chill</span>
+              </div>
+              <div class="row">
+                <span>Location</span><span>Philippines</span>
+              </div>
+            </div>
+            <div class="about-text reveal" style="transition-delay: 0.08s">
+              <p>
+                I'm <strong>CXXXXXXXXXX JXXXXXXXX C. GXXXXXXXXXX</strong> —
+                self-taught, easy-going, and pretty chill about most things
+                except a messy timeline. Everything I know about editing and
+                code, I picked up on my own: tutorials, forums, and a lot of
+                trial and error.
+              </p>
+              <p>
+                I edit short-form content for quick attention spans, long-form
+                content that needs pacing and patience, and educational content
+                that has to actually make sense to someone watching for the
+                first time. On the side, I build front-end stuff with HTML, CSS,
+                and JavaScript — different tools, same instinct for making
+                something feel right.
+              </p>
+              <p>
+                No pressure, no drama — just someone who likes figuring things
+                out and making things look and feel good.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="wrap">
+        <h2 class="reveal">Let's<br /><span class="accent">talk.</span></h2>
+        <p class="lead reveal" style="transition-delay: 0.06s">
+          Got an edit that needs a cut, or a site that needs building? Reach out
+          below.
+        </p>
+
+        <div class="contact-grid">
+          <a
+            class="contact-item reveal"
+            href="mailto:ceejhaygXXXXXXXXXXXXX666@gmail.com"
+          >
+            <span class="label mono">Email</span>
+            <span class="value">ceejhaygXXXXXXXXXXXX666@gmail.com</span>
+          </a>
+          <a
+            class="contact-item reveal"
+            style="transition-delay: 0.05s"
+            href="https://www.instagram.com/tsafrepus/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label mono">Instagram</span>
+            <span class="value">@tsafrepus</span>
+          </a>
+          <a
+            class="contact-item reveal"
+            style="transition-delay: 0.1s"
+            href="https://www.youtube.com/@JJHXCJG"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label mono">YouTube</span>
+            <span class="value">@JJHXCJG</span>
+          </a>
+          <a
+            class="contact-item reveal"
+            style="transition-delay: 0.15s"
+            href="https://github.com/rhubian777"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label mono">GitHub</span>
+            <span class="value">rhubian777</span>
+          </a>
+        </div>
+
+        <div class="foot-note">
+          <span>© 2026 CJ C. GXXXXXXXX</span>
+          <span>Built with HTML / CSS / JS</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
