@@ -159,54 +159,85 @@
     }
   }
 
-  /* ---------- video lightbox (plays embedded videos on-site) ---------- */
+  /* ---------- inline video player (plays inside the card) ---------- */
 
-  var videoModal = document.getElementById("videoModal");
-  var videoFrame = document.getElementById("videoFrame");
-  var videoClose = document.getElementById("videoClose");
-  var lastTrigger = null;
+  var playerCards = document.querySelectorAll(
+    ".showcase-card[data-embed], .showcase-card[data-video]",
+  );
 
-  function openVideo(src, portrait, trigger) {
-    if (!videoModal || !videoFrame) return;
-    lastTrigger = trigger;
-    videoFrame.className = "video-frame" + (portrait ? " portrait" : "");
-    var iframe = document.createElement("iframe");
-    iframe.src = src;
-    iframe.allow = "autoplay; fullscreen";
-    iframe.setAttribute("allowfullscreen", "");
-    iframe.title = "Video player";
-    videoFrame.appendChild(iframe);
-    videoModal.hidden = false;
-    document.body.style.overflow = "hidden";
-    if (videoClose) videoClose.focus();
+  function stopCard(card) {
+    var layer = card.querySelector(".showcase-player");
+    if (layer) layer.remove(); // removing the iframe/video stops playback
+    card.classList.remove("is-playing");
   }
 
-  function closeVideo() {
-    if (!videoModal || videoModal.hidden) return;
-    videoModal.hidden = true;
-    videoFrame.innerHTML = ""; // removing the iframe stops playback
-    document.body.style.overflow = "";
-    if (lastTrigger) lastTrigger.focus();
+  function stopAll(except) {
+    playerCards.forEach(function (c) {
+      if (c !== except) stopCard(c);
+    });
   }
 
-  document.querySelectorAll("a[data-embed]").forEach(function (card) {
-    card.addEventListener("click", function (e) {
+  function playCard(card) {
+    if (card.classList.contains("is-playing")) return;
+    stopAll(card);
+
+    var layer = document.createElement("div");
+    layer.className = "showcase-player";
+
+    var embed = card.getAttribute("data-embed");
+    var file = card.getAttribute("data-video");
+    var media;
+
+    if (file) {
+      // MP4 file: the browser's own controls give play, volume, mute, fullscreen
+      media = document.createElement("video");
+      media.src = file;
+      media.controls = true;
+      media.autoplay = true;
+      media.playsInline = true;
+      media.preload = "metadata";
+    } else {
+      media = document.createElement("iframe");
+      media.src = embed;
+      media.allow = "autoplay; fullscreen";
+      media.setAttribute("allowfullscreen", "");
+      media.title = "Video player";
+    }
+
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "player-close";
+    close.setAttribute("aria-label", "Close video");
+    close.innerHTML = "&times;";
+    close.addEventListener("click", function () {
+      stopCard(card);
+      var hit = card.querySelector(".showcase-hit");
+      if (hit) hit.focus();
+    });
+
+    layer.appendChild(media);
+    layer.appendChild(close);
+    card.appendChild(layer);
+    card.classList.add("is-playing");
+
+    setTimeout(function () {
+      card.scrollIntoView({
+        block: "center",
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    }, 380);
+  }
+
+  playerCards.forEach(function (card) {
+    var hit = card.querySelector(".showcase-hit");
+    if (!hit) return;
+    hit.addEventListener("click", function (e) {
       e.preventDefault();
-      openVideo(
-        card.getAttribute("data-embed"),
-        card.getAttribute("data-ratio") === "portrait",
-        card,
-      );
+      playCard(card);
     });
   });
 
-  if (videoClose) videoClose.addEventListener("click", closeVideo);
-  if (videoModal) {
-    videoModal.addEventListener("click", function (e) {
-      if (e.target === videoModal) closeVideo();
-    });
-  }
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeVideo();
+    if (e.key === "Escape") stopAll(null);
   });
 })();
