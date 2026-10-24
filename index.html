@@ -179,6 +179,7 @@
           <a
             class="showcase-card reveal tone-g"
             href="https://drive.google.com/file/d/1PKm8EKru3qSCEWSPGrftzNRWDEAlaV10/view?usp=sharing"
+            data-embed="https://drive.google.com/file/d/1PKm8EKru3qSCEWSPGrftzNRWDEAlaV10/preview"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -205,6 +206,7 @@
           <a
             class="showcase-card reveal tone-e"
             href="https://drive.google.com/file/d/18BrFaVvPOxsmvGgnXi_pSDj9Q6bManL8/view?usp=sharing"
+            data-embed="https://drive.google.com/file/d/18BrFaVvPOxsmvGgnXi_pSDj9Q6bManL8/preview"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -368,6 +370,20 @@
         </div>
       </div>
     </footer>
+
+    <div
+      class="video-modal"
+      id="videoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video player"
+      hidden
+    >
+      <button class="video-close" id="videoClose" aria-label="Close video">
+        &times;
+      </button>
+      <div class="video-frame" id="videoFrame"></div>
+    </div>
 
     <script src="script.js" defer></script>
   </body>

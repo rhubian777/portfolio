@@ -158,4 +158,55 @@
       setInterval(renderClock, 1000);
     }
   }
+
+  /* ---------- video lightbox (plays embedded videos on-site) ---------- */
+
+  var videoModal = document.getElementById("videoModal");
+  var videoFrame = document.getElementById("videoFrame");
+  var videoClose = document.getElementById("videoClose");
+  var lastTrigger = null;
+
+  function openVideo(src, portrait, trigger) {
+    if (!videoModal || !videoFrame) return;
+    lastTrigger = trigger;
+    videoFrame.className = "video-frame" + (portrait ? " portrait" : "");
+    var iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.allow = "autoplay; fullscreen";
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.title = "Video player";
+    videoFrame.appendChild(iframe);
+    videoModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (videoClose) videoClose.focus();
+  }
+
+  function closeVideo() {
+    if (!videoModal || videoModal.hidden) return;
+    videoModal.hidden = true;
+    videoFrame.innerHTML = ""; // removing the iframe stops playback
+    document.body.style.overflow = "";
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll("a[data-embed]").forEach(function (card) {
+    card.addEventListener("click", function (e) {
+      e.preventDefault();
+      openVideo(
+        card.getAttribute("data-embed"),
+        card.getAttribute("data-ratio") === "portrait",
+        card,
+      );
+    });
+  });
+
+  if (videoClose) videoClose.addEventListener("click", closeVideo);
+  if (videoModal) {
+    videoModal.addEventListener("click", function (e) {
+      if (e.target === videoModal) closeVideo();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeVideo();
+  });
 })();
